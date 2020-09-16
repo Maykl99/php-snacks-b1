@@ -11,28 +11,28 @@
             'nomeSquadraCasa'   => 'Milano',
             'nomeSquadraOspite' => 'Cantù',
             'punteggioSquadraCasa' => '55',
-            'punteggioSquadraCasa' => '60'
+            'punteggioSquadraOspite' => '60'
         ],
 
         [
             'nomeSquadraCasa'   => 'Roma',
             'nomeSquadraOspite' => 'Napoli',
             'punteggioSquadraCasa' => '45',
-            'punteggioSquadraCasa' => '35'
+            'punteggioSquadraOspite' => '35'
         ],
 
         [
             'nomeSquadraCasa'   => 'Anzio',
             'nomeSquadraOspite' => 'Nettuno',
             'punteggioSquadraCasa' => '60',
-            'punteggioSquadraCasa' => '50'
+            'punteggioSquadraOspite' => '50'
         ],
 
         [
             'nomeSquadraCasa'   => 'Milano',
             'nomeSquadraOspite' => 'Verona',
             'punteggioSquadraCasa' => '45',
-            'punteggioSquadraCasa' => '55'
+            'punteggioSquadraOspite' => '55'
         ]
     ];
 ?>
@@ -55,7 +55,7 @@
             <span>|</span>
             <span><?php echo $esitoPartiteBasket[$i]['punteggioSquadraCasa'];?></span>
             <span>-</span>
-            <span><?php echo $esitoPartiteBasket[$i]['punteggioSquadraCasa'];?></span>
+            <span><?php echo $esitoPartiteBasket[$i]['punteggioSquadraOspite'];?></span>
             </li>
     <?php } ?>
         
