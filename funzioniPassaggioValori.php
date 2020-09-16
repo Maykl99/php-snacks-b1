@@ -35,29 +35,19 @@ function emptyVal($mail,$name,$age){
 }
 
 // funzione controllo valore email
-function controlloEmail($email){
-
-	if(!$email && $num_at != 1): // se la stringa è vuota sicuramente non è una mail
-		return false;
-    else: 
-        trim($email); // elimino spazi, "a capo" e altro alle estremità della stringa
-        strpos($email,'.') !== false;
-        strpos($email,'@') !== false;
-        $num_at = count(explode( '@', $email )) - 1; // controllo che ci sia una sola @ nella stringa
-
-    endif;  
-
-	if(strpos($email,';') || strpos($email,',') || strpos($email,' ') && !preg_match( '/^[\w\.\-]+@\w+[\w\.\-]*?\.\w{1,4}$/', $email) ): // controllo la presenza di ulteriori caratteri "pericolosi":
-		return false;
-    
+function controlloEmail($email){	
+    $num_at = count(explode( '@', $email )) - 1;
+    if(($num_at == 1)&& strpos($email,'@') !== false && strpos($email,'.') !== false && !strpos($email,';')  && !strpos($email,',') && !strpos($email,' ')): #&& preg_match( '/^[\w\.\-]+@\w+[\w\.\-]*?\.\w{1,4}$/', $email)
+        trim($email);
+        return true;
     endif;
 
-	return true;
+    return false;
 }
 
 // funzione controllo valore tipo stringa
 function controlloNome($nome){
-    if(strlen($nome) > 3 && !preg_match("/^[a-zA-Z]$/",$_GET['name'])):
+    if(strlen($nome) > 3 && controlloEta($nome) == false): #&& !preg_match("/^[a-zA-Z]$/",$_GET['name']) ! inserire il controllo se una elemento della parola è un numero
         return true;
     endif;
 
@@ -66,7 +56,7 @@ function controlloNome($nome){
 
 // funzione controllo validità numero
 function controlloEta($numero){
-    if(is_numeric($numero) && !is_float($numero)):
+    if(is_numeric($numero) && ctype_digit($numero)):
         return true;
     endif;
 
